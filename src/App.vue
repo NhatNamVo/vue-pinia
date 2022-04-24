@@ -32,7 +32,7 @@ export default {
   },
   watch: {
     '$route.path': function (value) {
-      if(value === '/login' || value === '404' || value === '505') {
+      if(value === '/login' || value === '/404' || value === '/505' || value === '/forgot-password') {
         this.isLayout = false;
       }
       else{
@@ -53,12 +53,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
