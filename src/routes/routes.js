@@ -1,5 +1,6 @@
 import VueRouter from "vue-router";
 import Vue from 'vue';
+import { useAuthStore } from "@/store/auth/auth";
 
 Vue.use(VueRouter);
 
@@ -52,5 +53,18 @@ const routes = [
 const router = new VueRouter({
     routes,
 });
+
+router.beforeResolve((to, from, next) => {
+    console.log(to);
+    const authStore = useAuthStore();
+
+    if(!authStore.isLogin && to.name !== 'login') {
+        next({name: 'login'});
+    }
+    else{
+        next();
+    }
+
+})
 
 export default router;
